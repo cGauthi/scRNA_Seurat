@@ -33,9 +33,9 @@ common_marks <- c('TLR2', 'ITGB2', 'ITGAM', 'CTSD', 'CTSA', 'NLRP3', 'CLEC7A', '
 # head(c1_markers, n = 10)
 
 # # Listing differences betwen individual clusters
-DEGenes_xGroup <- FindMarkers(scrna_filtered, group.by = 'HTO_classification', ident.1 = c('AD1', 'AD2', 'AD3', 'AD4'), ident.2 = c('Control1', 'Control2', 'Control3', 'Control4'))
+DEGenes_xGroup <- FindMarkers(scrna_filtered, group.by = 'HTO_classification', ident.1 = c('AD1', 'AD2', 'AD3', 'AD4'), ident.2 = c('Control1', 'Control2'))
 # head(DEmarks, n = 10)
-write.xlsx(DEGenes_xGroup, 'DEGenes_xGroup.xlsx', rowNames = TRUE)
+write.xlsx(DEGenes_xGroup, 'DEGenes_xGroup_reducedControls.xlsx', rowNames = TRUE)
 
 # List all positive markers for each cluster
 scrna_filtered_markers <- FindAllMarkers(scrna_filtered, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
